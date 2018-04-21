@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<button ion-button (click)="getUser()">load content</button>
+  <div *ngIf="userDetails">
+    <div *ngFor="let ud of userDetails">
+	  
+	  <ion-card>
+		  <ion-card-header>
+			Card Header
+		  </ion-card-header>
+
+		  <ion-card-content>
+			 <ion-grid>
+				<ion-row>
+					<ion-col>
+						{{ud.user_name}}--{{ud.id}}
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						 {{ud.mobile_number}}
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						 {{ud.payment_details}}
+					</ion-col>
+				</ion-row>
+			</ion-grid>		
+		  </ion-card-content>
+	</ion-card>
+
+    </div>
+  </div>
+	
+	
+	
+	
+	<ion-infinite-scroll (ionInfinite)="infiniteScroll($event)">
+		<ion-infinite-scroll-content>
+		</ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+</ion-content>
