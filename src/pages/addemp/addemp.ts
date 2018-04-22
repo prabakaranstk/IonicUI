@@ -8,9 +8,16 @@ import {CommonService} from "../providers/CommonService";
 })
 export class addemp implements OnInit{
 	
+		empDetails:any={emp_name:[],
+						emp_mobileNo:[],
+						emp_access:{admin:true,histry:true,camera:false},
+						empStatus:"act"};
+	
+	
+	
   constructor(public navCtrl: NavController,
 			  private readonly commonService:CommonService) {
-		
+			
   }
   
   ngOnInit() {
@@ -18,6 +25,12 @@ export class addemp implements OnInit{
              
  }
 
+ 
+		saveEmpDetails(){
+			
+			console.log(this.empDetails);
+			
+		}
 
   
 }
