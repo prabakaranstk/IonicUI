@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {SERVER_URL} from "./config";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient,HttpHeaders } from "@angular/common/http";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Observable';
@@ -9,8 +9,10 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class CommonService {
 
+	retValue:any={statusText:""};
 
  constructor(private readonly httpClient: HttpClient) {
+	 
   }
 
   
@@ -22,7 +24,30 @@ export class CommonService {
         .catch(this.handleError);
 }
  
- 
+ addEmp(emp):string {
+	 
+	 const httpOptions = {
+		  headers: new HttpHeaders({
+			'Content-Type':  'application/json'
+		  })
+		};
+	 
+    
+		
+		
+		   this.httpClient
+			.post(`${SERVER_URL}/app/addemp`,emp,httpOptions)
+			.subscribe((res: Response) => {
+					
+			
+				this.retValue.statusText=res.statusText;
+			
+			
+			}, err=>console.log(err)); 
+		
+		return this.retValue.statusText;
+		
+}
 
  
  private handleError(error:any) {

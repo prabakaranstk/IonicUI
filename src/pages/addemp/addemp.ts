@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {CommonService} from "../providers/CommonService";
+import { ToastController } from 'ionic-angular';
 
 @Component({
   selector: 'page-addemp',
@@ -10,13 +11,17 @@ export class addemp implements OnInit{
 	
 		empDetails:any={emp_name:[],
 						emp_mobileNo:[],
-						emp_access:{admin:true,histry:true,camera:false},
-						empStatus:"act"};
+						empAccess:{admin:true,histry:true,camera:false},
+						empStatus:"act"}; 
+		
+	
+	
 	
 	
 	
   constructor(public navCtrl: NavController,
-			  private readonly commonService:CommonService) {
+			  public commonService:CommonService,
+			  public toastCtrl: ToastController) {
 			
   }
   
@@ -28,9 +33,25 @@ export class addemp implements OnInit{
  
 		saveEmpDetails(){
 			
-			console.log(this.empDetails);
+			console.log(this.empDetails);	
+			var ret=this.commonService.addEmp(this.empDetails);
+			
+			if(ret.statusText==="OK"){
+				this.presentToast("employee added successfully");
+			}else{
+				
+				this.presentToast("error");
+			}
 			
 		}
 
+		
+		 presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 3000
+    });
+    toast.present();
+  }
   
 }
