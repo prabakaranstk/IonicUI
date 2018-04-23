@@ -34,14 +34,9 @@ export class addemp implements OnInit{
 		saveEmpDetails(){
 			
 			console.log(this.empDetails);	
-			var ret=this.commonService.addEmp(this.empDetails);
+			this.commonService.addEmp(this.empDetails);
 			
-			if(ret.statusText==="OK"){
-				this.presentToast("employee added successfully");
-			}else{
-				
-				this.presentToast("error");
-			}
+			
 			
 		}
 

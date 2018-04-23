@@ -8,7 +8,7 @@ import {CommonService} from "../providers/CommonService";
 })
 export class HomePage implements OnInit{
 	userDetails:any=[];
-	page: number = 1;
+	page: number = 0;
 	result:any = {content:[]};
 	
   constructor(public navCtrl: NavController,
@@ -18,17 +18,23 @@ export class HomePage implements OnInit{
   
   ngOnInit() {
 
-               this.getUser(0);
+              
+  
+			this.getUser(this.page)
  }
 
    getUser(page){
 	  
-    this.commonService.getUser(page).subscribe(data => this.result = data);
-  
-   
-			this.result.content.forEach( item => {
-					this.userDetails.push(item);
-				});
+		this.commonService.getUser(this.page).subscribe(data => {
+			  
+					this.result.content = data['content'];
+			  
+			  
+					this.result.content.forEach( item => {
+						this.userDetails.push(item);
+					});
+				
+			  });
 	  
   }
   
@@ -36,10 +42,10 @@ export class HomePage implements OnInit{
   infiniteScroll(infiniteScrollEvent)
   {
 	setTimeout(() => {
-			this.page++;
-      
+			
+			this.page=this.page+1;
 				
-			this.getUser(this.page++);
+			this.getUser(this.page);
 	 
 			infiniteScrollEvent.complete();
     },500);
