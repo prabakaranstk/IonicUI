@@ -44,22 +44,22 @@
 		  <ion-row>
 				<ion-col col-6 col-sm-6 col-md-6 col-lg-6 col-xl-16>
 					<ion-item>
-					<ion-label>Admin</ion-label>
-					<ion-checkbox [(ngModel)]="empDetails.empAccess.admin" ></ion-checkbox>
+						<ion-label>Admin</ion-label>
+						<ion-checkbox [(ngModel)]="empDetails.empAccess.admin" ></ion-checkbox>
 					</ion-item>
 				</ion-col>
 				<ion-col col-6 col-sm-6 col-md-6 col-lg-6 col-xl-16>
 					<ion-item>
-					<ion-label>History</ion-label>
-					<ion-checkbox [(ngModel)]="empDetails.empAccess.histry"></ion-checkbox>
+						<ion-label>History</ion-label>
+						<ion-checkbox [(ngModel)]="empDetails.empAccess.histry"></ion-checkbox>
 					</ion-item>
 				</ion-col>
 			</ion-row>
 			 <ion-row>
 				<ion-col col-6 col-sm-6 col-md-6 col-lg-6 col-xl-16>
 					<ion-item>
-					<ion-label>Camera</ion-label>
-					<ion-checkbox [(ngModel)]="empDetails.empAccess.camera"></ion-checkbox>
+						<ion-label>Camera</ion-label>
+						<ion-checkbox [(ngModel)]="empDetails.empAccess.camera"></ion-checkbox>
 					</ion-item>
 				</ion-col>
 				<ion-col col-6 col-sm-6 col-md-6 col-lg-6 col-xl-16>
@@ -71,13 +71,9 @@
 					<ion-list>
 					<ion-item>
 						<ion-label>Expenses</ion-label>
-						<ion-select [(ngModel)]="gaming">
-						  <ion-option value="nes">NES</ion-option>
-						  <ion-option value="n64">Nintendo64</ion-option>
-						  <ion-option value="ps">PlayStation</ion-option>
-						  <ion-option value="genesis">Sega Genesis</ion-option>
-						  <ion-option value="saturn">Sega Saturn</ion-option>
-						  <ion-option value="snes">SNES</ion-option>
+						<ion-select [(ngModel)]="empDetails.expRep">
+						  <ion-option value="inc">Income</ion-option>
+						  <ion-option value="exp">Expences Report</ion-option>
 						</ion-select>
 					 </ion-item>
 					</ion-list>		

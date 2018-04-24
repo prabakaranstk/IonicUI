@@ -12,7 +12,8 @@ export class addemp implements OnInit{
 		empDetails:any={emp_name:[],
 						emp_mobileNo:[],
 						empAccess:{admin:true,histry:true,camera:false},
-						empStatus:"act"}; 
+						empStatus:"act",
+						expRep:"inc"}; 
 		
 	
 	
@@ -34,7 +35,15 @@ export class addemp implements OnInit{
 		saveEmpDetails(){
 			
 			console.log(this.empDetails);	
-			this.commonService.addEmp(this.empDetails);
+			this.commonService.addEmp(this.empDetails).subscribe(data => {
+				
+				console.log(data);
+				
+			},err=>{
+				
+				this.presentToast(err);
+				
+			});	
 			
 			
 			

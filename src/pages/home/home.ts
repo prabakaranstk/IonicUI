@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {CommonService} from "../providers/CommonService";
+import { ToastController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -12,7 +13,8 @@ export class HomePage implements OnInit{
 	result:any = {content:[]};
 	
   constructor(public navCtrl: NavController,
-			  private readonly commonService:CommonService) {
+			  private readonly commonService:CommonService,
+			  public toastCtrl: ToastController) {
 		
   }
   
@@ -34,6 +36,11 @@ export class HomePage implements OnInit{
 						this.userDetails.push(item);
 					});
 				
+			  },err => {
+				  
+				  
+				  this.presentToast(err);
+				  
 			  });
 	  
   }
@@ -50,6 +57,15 @@ export class HomePage implements OnInit{
 			infiniteScrollEvent.complete();
     },500);
 	
+  }
+  
+  
+  	 presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 3000
+    });
+    toast.present();
   }
   
 }
