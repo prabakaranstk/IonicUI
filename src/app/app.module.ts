@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { addemp } from '../pages/addemp/addemp';
+import { profile } from '../pages/profile/profile';
 
 import {HttpClientModule} from "@angular/common/http";
 
@@ -18,7 +19,8 @@ import {CommonService} from "../pages/providers/CommonService";
     MyApp,
     HomePage,
     ListPage,
-	addemp
+	addemp,
+	profile
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import {CommonService} from "../pages/providers/CommonService";
     MyApp,
     HomePage,
     ListPage,
-	addemp
+	addemp,
+	profile
   ],
   providers: [
     StatusBar,

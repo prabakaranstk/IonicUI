@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color="light">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+	
+
+	<ion-card>
+	
+		<ion-grid>
+		  <ion-row>
+			<ion-col col-6 col-sm-6 col-md-6 col-lg-6 col-xl-16>
+				<ion-item>
+					<ion-label floating>Mobile Number</ion-label>
+					<ion-input [(ngModel)]="empDetails.emp_mobileNo" type="number"></ion-input>
+				</ion-item>
+			</ion-col>
+			<ion-col col-6 col-sm-6 col-md-6 col-lg-6 col-xl-16>
+				<ion-item>
+					<ion-label floating>Name</ion-label>
+					<ion-input [(ngModel)]="empDetails.emp_name" type="text"></ion-input>
+				</ion-item>
+			</ion-col>
+		  </ion-row>
+		 
+		</ion-grid>
+	</ion-card>
+	
+
+	
+	
+</ion-content>
